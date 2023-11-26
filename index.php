@@ -23,7 +23,7 @@
                 <p>Description de votre application de paiement en ligne...</p>
                 <p>Facile, sécurisé et pratique pour gérer vos factures en ligne.</p>
                 <div>
-                    <a href="login.php" class="waves-effect waves-light btn">Connexion</a>
+                    <a href="views/login.php" class="waves-effect waves-light btn">Connexion</a>
                     <a href="views/users/inscription.php" class="waves-effect waves-light btn">Inscription</a>
                 </div>
             </div>

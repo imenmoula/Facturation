@@ -10,6 +10,7 @@ class UserController extends User {
     function __construct() {
         parent::__construct();
     }
+    /*********************************************************************** */
     function insert(User $u){
         try {
         $query="insert into users (name,email, password,adresse,phone,rib,cin,ville) values(?, ?, ?, ?,?,?,?,?)";
@@ -21,8 +22,45 @@ class UserController extends User {
         echo "Error: " . $e;
         header('Location:index.php');
     }
+    }
+    /***************************************************************************** */
+      function connexion(User $u)
+      {
+        try{
+            $query="select * from users where email= ? and password= ?";
+            $res=$this->pdo->prepare($query);
+            $aryy=array($u->getEmail(),$u->getPassword());
+            $res->execute($aryy);
+
+            $user = $res->fetch(PDO::FETCH_ASSOC); // Récupération de la première ligne de résultat
+
+
+            if($res->rowCount() == 1){
+
+                session_start(); // Start the session
+                $_SESSION['id'] = $user['id'];
+                $_SESSION['name'] = $user['name'];
+                $_SESSION['email'] = $user['email'];
+
+                $_SESSION['is_admin'] = $user['is_admin'];
+               // echo "Connexion réussie pour l'utilisateur : " . $_SESSION['name'] ;
+                 header("Location: home.php");
+                 exit();
+            }else {
+               // echo "Identifiants incorrects. Veuillez réessayer.";
+                 header("Location: login.php");
+                 exit();
+            }
+
+
+        }catch(Exception $e)
+        {
+            echo "error".$e;
+            header('location :login.php');
+    }
+      }  
+
         
-        }
 
 
 
