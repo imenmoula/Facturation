@@ -10,29 +10,35 @@
     <style>
         /* Custom styles for the Navbar */
         nav {
-            background-color: #2196F3; /* Blue background color */
+            background-color: #2196F3; 
+            /* Blue background color */
+            position: fixed;
+            width: 100%;
+            z-index: 1000; 
+           
         }
+ 
+
 
         /* Customize the brand-logo */
         .brand-logo {
             margin-left: 15px; /* Adjust the margin as needed */
         }
+       
+        
     </style>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Facturation  <?php echo $_SESSION['name']; ?></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Liste des factures</a></li>
-                <li><a href="#">Liste des clients</a></li>
-                <li><a href="#">Déconnexion</a></li>
-            </ul>
-        </div>
-    </nav>
+      <!-- Navbar -->
+  <?php 
+  
+  $rootPath = $_SERVER['DOCUMENT_ROOT'].'/Facturation/';
+  
+  include $rootPath.'views/includes/navbar.php'; 
+  
+  ?>
+    
 
     <!-- Main content -->
     <div class="container">
