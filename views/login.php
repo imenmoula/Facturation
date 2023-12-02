@@ -11,8 +11,15 @@
 
 <body>
     <div class="container">
+
+
         <h2>Login</h2>
         <form action="login_test.php" method="post">
+        <?php
+if (isset($_GET['erreur'])) {
+echo '<p style="color: red;">' . htmlspecialchars($_GET['erreur']). '</p>';
+}
+?>
             <div class="input-field">
                 <input type="text" id="username" name="username" required>
                 <label for="username">Username</label>

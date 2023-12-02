@@ -6,6 +6,7 @@
     <title>Inscription</title>
     <!-- Inclure les fichiers CSS de Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="<?php echo RACINE_SITE.'views/includes/style.css'?>">
     <!-- Styles CSS personnalisés -->
     <style>
         /* Ajoutez vos styles personnalisés ici */
@@ -13,8 +14,19 @@
 </head>
 
 <body>
+
+
+    <!-- Navbar -->
+    <?php
+
+    $rootPath = $_SERVER['DOCUMENT_ROOT'] . '/Facturation/';
+    include $rootPath . 'views/includes/navbar.php';
+   
+    ?>
+    <br> <br>
+
     <div class="container">
-        <h2>Inscription</h2>
+        <h2>Ajout</h2><?php echo $_SESSION['name'].$_SESSION['id']; ?>
         <form action="inscrire.php" method="post">
             <div class="input-field">
                 <input type="text" id="name" name="name" required>
@@ -58,6 +70,9 @@
 
     <!-- Inclure les fichiers JavaScript de Materialize -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <?php
+    @ob_flush();
+    ?>
 </body>
 
 </html>

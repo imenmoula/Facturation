@@ -29,7 +29,10 @@ class UserController extends User
   /***************************************************************************** */
   function connexion(User $u)
   {
+    
     try {
+      ob_start();
+session_start(); 
       $query = "select * from users where email= ? and password= ?";
       $res = $this->pdo->prepare($query);
       $aryy = array($u->getEmail(), $u->getPassword());
@@ -37,10 +40,9 @@ class UserController extends User
 
       $user = $res->fetch(PDO::FETCH_ASSOC); // Récupération de la première ligne de résultat
 
-
       if ($res->rowCount() == 1) {
 
-        session_start(); // Start the session
+         // Start the session
         $_SESSION['id'] = $user['id'];
         $_SESSION['name'] = $user['name'];
         $_SESSION['email'] = $user['email'];
@@ -51,12 +53,12 @@ class UserController extends User
         exit();
       } else {
         // echo "Identifiants incorrects. Veuillez réessayer.";
-        header("Location: login.php");
+        header("Location: login.php?erreur=Identifiants incorrects. Veuillez réessayer.");
         exit();
       }
     } catch (Exception $e) {
       echo "error" . $e;
-      header('location :login.php');
+      header('location :login.php?erreur='.$e);
     }
   }
   /*************************************************** */

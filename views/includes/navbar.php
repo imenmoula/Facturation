@@ -1,6 +1,9 @@
 <?php 
 define("RACINE_SITE","/Facturation/");
-    
+
+
+
+@session_start();
   ?>
 
 <nav>
