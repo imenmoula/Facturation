@@ -11,35 +11,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- Materialize JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <style>
-    /* Add custom styles if needed */
-    .form-with-button {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.right-aligned {
-  margin-left: auto; /* Moves the button to the right */
-}
-/* Custom styles for buttons */
-.custom-btn {
-    padding: 1 12px; /* Adjust the padding as needed */
-    margin-right: 9px; /* Adds space between buttons */
-}
-
-/* Custom styles for small icons */
-.small-icon {
-    font-size: 16px; /* Adjust the font-size of the icons */
-    margin-right: 4px; /* Adds space between icon and text */
-}
-
-
-  </style>
-</head>
-<body>
-
-  <!-- Navbar -->
   <?php 
   
   $rootPath = $_SERVER['DOCUMENT_ROOT'].'/Facturation/';
@@ -47,6 +18,38 @@
   include $rootPath.'views/includes/navbar.php'; 
   
   ?>
+       
+    <link rel="stylesheet" href="<?php echo RACINE_SITE.'views/includes/style.css'?>">
+       
+   <style>
+      /* Add custom styles if needed */
+  .form-with-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .right-aligned {
+    margin-left: auto; /* Moves the button to the right */
+  }
+  /* Custom styles for buttons */
+  .custom-btn {
+      padding: 1 12px; /* Adjust the padding as needed */
+      margin-right: 9px; /* Adds space between buttons */
+  }
+  
+  /* Custom styles for small icons */
+  .small-icon {
+      font-size: 16px; /* Adjust the font-size of the icons */
+      margin-right: 4px; /* Adds space between icon and text */
+  }
+   </style>
+  
+</head>
+<body>
+
+  <!-- Navbar -->
+
 
 <div class="container">
   <h4>Liste des client</h4>

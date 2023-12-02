@@ -1,0 +1,18 @@
+
+  
+  /********************************************************/
+  nav {
+    background-color: #2196F3; 
+    /* Blue background color */
+    position: fixed;
+    width: 100%;
+    z-index: 1000; 
+   
+}
+
+
+
+/* Customize the brand-logo */
+.brand-logo {
+    margin-left: 15px; /* Adjust the margin as needed */
+}

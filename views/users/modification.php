@@ -1,12 +1,11 @@
 <?php
 
-
-// Obtenez le chemin absolu de la racine du serveur
 $rootPath = $_SERVER['DOCUMENT_ROOT'] . '/Facturation/';
 
 include_once($rootPath . '/models/User.php');
 include_once($rootPath . '/controllers/UserController.php');
 try {
+    $id = $_POST['id'];
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -18,7 +17,9 @@ try {
     $ville = $_POST['ville'];
   
 
-    $user = new User();
+    $userctr=new UserController();
+    $user=new User();
+
     $user->setName($name);
     $user->setEmail($email);
     $user->setPassword($password);
@@ -27,15 +28,24 @@ try {
     $user->setRib($rib);
     $user->setCin($cin);
     $user->setCity($ville);
-    $UserCtr = new UserController();
-    $res = $UserCtr->insert($user);
-    if ($res == true) {
-        echo "succe";
-    } else {
-        echo "error";
+    $user->setId($id);
+    //var_dump($user) ;
+    $res=$userctr->modifier_user($user);
+    
+    if($res==true){
+
+       
+            header('Location:modif.php?id='.$id.'&success=1');
+    
     }
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-    header('Location:index.php');
+    else{
+        header('Location:modif.php?id='.$id.'&error=1');
+    }
+
+}catch(Exception $e){
+echo 'Error:'.$e->getMessage();
+
+header('Location:users/modif.php');
+
 }
 ?>
