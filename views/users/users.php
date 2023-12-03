@@ -122,18 +122,14 @@
           
               </td>
               <td>
-            
-           
-              
-               
-                      <a href='modif.php?id={$row['id']}' class='waves-effect waves-light btn-small'>
-                          <i class='material-icons small-icon'>edit</i>Modifier
-                      </a>
+                <a href='modif.php?id={$row['id']}' class='waves-effect waves-light btn-small'>
+                     <i class='material-icons small-icon'>edit</i>Modifier
+                </a>
                </td>
                <td>
-                              <a href='supp.php?id={$row['id']}' class='waves-effect waves-light btn-small red'>
-                                  <i class='material-icons  small-icon'>delete</i>Supprimer
-                              </a>
+                  <a href='supp.php?id={$row['id']}' class='waves-effect waves-light btn-small red'>
+                   <i class='material-icons  small-icon'>delete</i>Supprimer
+                   </a>
                </td>
                
             </tr>";

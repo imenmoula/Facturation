@@ -136,9 +136,9 @@
                <td>
                              
 
-<a href='#confirmationModal' data-id='{$row['id']}' class='waves-effect waves-light btn-small red modal-trigger'>
-    <i class='material-icons small-icon'>delete</i>Supprimer
-</a>
+        <a href='#confirmationModal' data-id='{$row['id']}' class='waves-effect waves-light btn-small red modal-trigger'>
+            <i class='material-icons small-icon'>delete</i>Supprimer
+        </a>
 
                </td>
                
