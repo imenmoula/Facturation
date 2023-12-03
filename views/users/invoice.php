@@ -119,7 +119,7 @@
               
 
               <td>
-                  <a href='#?id={$row['id']}' class='waves-effect waves-light btn-small'>
+                  <a href=' #?id={$row['id']}' class='waves-effect waves-light btn-small'>
                       <i class='material-icons small-icon'>visibility</i>Consulter
                   </a>
           
@@ -129,7 +129,7 @@
            
               
                
-                      <a href='#?id={$row['id']}' class='waves-effect waves-light btn-small'>
+                      <a href='modifFact.php?id={$row['id']}' class='waves-effect waves-light btn-small'>
                           <i class='material-icons small-icon'>edit</i>Modifier
                       </a>
                </td>
