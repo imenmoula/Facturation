@@ -134,9 +134,12 @@
                       </a>
                </td>
                <td>
-                              <a href='#?id={$row['id']}' class='waves-effect waves-light btn-small red'>
-                                  <i class='material-icons  small-icon'>delete</i>Supprimer
-                              </a>
+                             
+
+<a href='#confirmationModal' data-id='{$row['id']}' class='waves-effect waves-light btn-small red modal-trigger'>
+    <i class='material-icons small-icon'>delete</i>Supprimer
+</a>
+
                </td>
                
             </tr>";
@@ -149,6 +152,16 @@
 
   </div>
 
+  <div id="confirmationModal" class="modal">
+    <div class="modal-content">
+        <h4>Confirmation</h4>
+        <p>Êtes-vous sûr de vouloir supprimer cet enregistrement ?</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Annuler</a>
+        <a id="confirmDeleteBtn" href="#" class="modal-close waves-effect waves-red btn-flat">Supprimer</a>
+    </div>
+</div>
   <!-- <script>
   // JavaScript functions for actions
   function deleteData(id) {
@@ -164,6 +177,33 @@
 
 
   <!-- jQuery -->
+  <script>
+
+    function confirmDelete(id) {
+        // Display a confirmation dialog
+        if (confirm('Êtes-vous sûr de vouloir supprimer cet enregistrement ?')) {
+            window.location.href = 'suppfact.php?id=' + id; 
+        } else {
+          location.reload();
+        }
+    }
+
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+        const modalInstances = M.Modal.init(document.querySelectorAll('.modal'));
+
+        const anchors = document.querySelectorAll('.modal-trigger');
+        anchors.forEach(anchor => {
+            anchor.addEventListener('click', function() {
+                const id = this.getAttribute('data-id');
+                confirmDeleteBtn.setAttribute('href', `suppfact.php?id=${id}`);
+            });
+        });
+    });
+</script>
 
 </body>
 

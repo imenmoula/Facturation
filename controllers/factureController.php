@@ -53,5 +53,14 @@ function modif_fact(facture $f)
     return false;
   }
 }
+/*****************************delete******************* */
+function delete($id)
+{
+ 
+  $sql=" delete from invoices where id=?";
+  $res=$this->pdo->prepare($sql);
+  return $res->execute(array($id));
+}
 
 }
+?>
