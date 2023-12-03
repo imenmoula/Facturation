@@ -82,6 +82,7 @@
   include_once($rootPath . '/controllers/UserController.php');
   $u = new UserController();
   $res = $u->liste($u);
+
   echo '<table class="striped">';
   echo "<thead>
           <tr>
