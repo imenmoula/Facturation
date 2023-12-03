@@ -29,10 +29,10 @@ class UserController extends User
   /***************************************************************************** */
   function connexion(User $u)
   {
-    
+
     try {
       ob_start();
-session_start(); 
+      session_start();
       $query = "select * from users where email= ? and password= ?";
       $res = $this->pdo->prepare($query);
       $aryy = array($u->getEmail(), $u->getPassword());
@@ -42,7 +42,7 @@ session_start();
 
       if ($res->rowCount() == 1) {
 
-         // Start the session
+        // Start the session
         $_SESSION['id'] = $user['id'];
         $_SESSION['name'] = $user['name'];
         $_SESSION['email'] = $user['email'];
@@ -58,7 +58,7 @@ session_start();
       }
     } catch (Exception $e) {
       echo "error" . $e;
-      header('location :login.php?erreur='.$e);
+      header('location :login.php?erreur=' . $e);
     }
   }
   /*************************************************** */
@@ -93,7 +93,7 @@ session_start();
       //var_dump($arry);
       //echo $stmt;
     } catch (Exception $e) {
-     return false;
+      return false;
     }
   }
   //**************delete************************* */
@@ -112,5 +112,29 @@ session_start();
     $Data = $res->fetch();
     return $Data;
   }
+
+  function searchwithidname($id, $name)
+{
+    $query = "SELECT * FROM users WHERE 1=1";
+    $params = array();
+
+    if (!empty($id)) {
+        $query .= " AND id = ?";
+        $params[] = $id;
+    }
+
+    if (!empty($name)) {
+        $query .= " AND name LIKE ?";
+        $params[] = '%' . $name . '%';
+    }
+
+    $res = $this->pdo->prepare($query);
+    $res->execute($params);
+
+    return $res->fetchAll(PDO::FETCH_ASSOC);
+    
+}
+
+
   /****************************getuser */
 }
