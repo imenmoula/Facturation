@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php define("RACINE_SITE","/Facturation/");
+ ?>
 <head>
   <meta charset="UTF-8">
   <title>Users</title>
@@ -8,8 +9,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <?php 
+  
+  $rootPath = $_SERVER['DOCUMENT_ROOT'].'/Facturation/';
+  
+  
+  ?> 
+         <link rel="stylesheet" href="<?php echo RACINE_SITE . 'views/includes/style.css' ?>">
 
-  <link rel="stylesheet" href="<?php echo RACINE_SITE . 'views/includes/style.css' ?>">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- Materialize JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

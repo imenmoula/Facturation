@@ -4,21 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Users</title>
-  <!-- Materialize CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <link rel="stylesheet" href="<?php echo RACINE_SITE . 'views/includes/style.css' ?>">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <!-- Materialize JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+  
   <?php
 
   $rootPath = $_SERVER['DOCUMENT_ROOT'] . '/Facturation/';
 
-  include $rootPath . 'views/includes/navbar.php';
+  include $rootPath . 'views/includes/head.php';
 
   ?>
 
@@ -51,11 +42,14 @@
       /* Adds space between icon and text */
     }
   </style>
+ 
 </head>
 
 <body>
 
   <!-- Navbar -->
+  <?php   include $rootPath . 'views/includes/navbar.php';
+ ?>
 
   <br> <br>
   <div class="container">
@@ -228,6 +222,8 @@
       const modalInstances = M.Modal.init(document.querySelectorAll('.modal'));
     });
   </script>
+
+  
 </body>
 
 </html>

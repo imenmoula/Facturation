@@ -136,5 +136,20 @@ class UserController extends User
 }
 
 
-  /****************************getuser */
+  /****************************numuser********************************************************** */
+ 
+  public function nbUtilisateur() {
+    $sql = "SELECT COUNT(id) AS total FROM users";
+    $res = $this->pdo->query($sql);
+    $result = $res->fetch(PDO::FETCH_ASSOC);
+    return $result['total'];
 }
+//*************************************************verification si un admin**************************************** */
+
+
+}
+ 
+
+
+
+

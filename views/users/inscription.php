@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php define("RACINE_SITE","/Facturation/");
+ ?>
 <head>
     <meta charset="UTF-8">
     <title>Inscription</title>

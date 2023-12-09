@@ -26,7 +26,16 @@ class factureController extends facture
   //**********liste********************* */
   function liste(facture $f)
   {
-    $query = "select * from invoices";
+    if($_SESSION['is_admin'])
+    {
+      $query = "select * from invoices";
+
+    }else 
+    {
+      $query = "select * from invoices where iduser=".$_SESSION['id'];
+
+
+    }
     $res = $this->pdo->prepare($query);
     $res->execute();
     return $res;
@@ -61,6 +70,43 @@ function delete($id)
   $res=$this->pdo->prepare($sql);
   return $res->execute(array($id));
 }
+//**********************non payants******************************* */
+public function numberNonpaye()
+{
+  $sql = "SELECT COUNT(id) AS total  FROM invoices  WHERE paid = 0";
+  $res = $this->pdo->query($sql);
+  $result = $res->fetch(PDO::FETCH_ASSOC);
+  return $result['total'];
+}
+/*************************payes******************************* */
+public function numberpaye()
+{
+  $sql = "SELECT COUNT(id) AS total  FROM invoices  WHERE paid = 1";
+  $res = $this->pdo->query($sql);
+  $result = $res->fetch(PDO::FETCH_ASSOC);
+  return $result['total'];
+}
+/****************************************************************/ 
+function listeNonpaye(facture $f)
+  {
+    $query = "select id,iduser,datepaid,type from invoices where paid=0 ";
+    $res = $this->pdo->prepare($query);
+    $res->execute();
+    return $res;
+  }
+  /***************************************************************************** */
+  function listepayant(facture $f)
+  {
+    $query = "select id,iduser,datepaid,type from invoices where paid=1 ";
+    $res = $this->pdo->prepare($query);
+    $res->execute();
+    return $res;
+  }
+
+
+
+
+
 
 }
 ?>
