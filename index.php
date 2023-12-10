@@ -13,11 +13,13 @@
 </head>
 
 <body>
+<?php define("RACINE_SITE","/Facturation/"); ?>
+
     <div class="container">
         <h1>Application de Paiement en Ligne</h1>
         <div class="row">
             <div class="col s12 m6">
-                <img src="path_to_your_image" alt="Image de facturation" class="responsive-img">
+                <img src="<?php echo RACINE_SITE; ?>views/includes/img/login.png" alt="Image de facturation" class="responsive-img">
             </div>
             <div class="col s12 m6">
                 <p>Description de votre application de paiement en ligne...</p>

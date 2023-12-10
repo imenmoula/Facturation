@@ -134,8 +134,8 @@ echo "<tbody>";
           
           echo "</td>
                   <td>
-                      <a href='#?id={$row['id']}' class='waves-effect waves-light btn-small'>
-                          <i class='material-icons small-icon'>visibility</i>Consulter
+                      <a href='consulteclient.php?id={$row['id']}' target='_blank' class='waves-effect waves-light btn-small'>
+                      <i class='material-icons small-icon'>picture_as_pdf</i>Consulter PDF
                       </a>
                   </td>
                   <td>
