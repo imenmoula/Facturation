@@ -1,6 +1,6 @@
 <?php
 
-// Obtenez le chemin absolu de la racine du serveur
+
 $rootPath = $_SERVER['DOCUMENT_ROOT'] . '/Facturation/';
 
 include_once($rootPath . '/models/User.php');

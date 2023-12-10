@@ -26,15 +26,10 @@ class factureController extends facture
   //**********liste********************* */
   function liste(facture $f)
   {
-    if($_SESSION['is_admin'])
-    {
+    if ($_SESSION['is_admin']) {
       $query = "select * from invoices";
-
-    }else 
-    {
-      $query = "select * from invoices where iduser=".$_SESSION['id'];
-
-
+    } else {
+      $query = "select * from invoices where iduser=" . $_SESSION['id'];
     }
     $res = $this->pdo->prepare($query);
     $res->execute();
@@ -42,52 +37,52 @@ class factureController extends facture
   }
 
   /******************************************************** */
-function getFacture($id)
-{
-  $query = "select * from invoices where id=?  ";
-  $res = $this->pdo->prepare($query);
-  $res->execute(array($id));
-  $data = $res->fetch();
-  return $data;
-}
-// /***************************modif */
-function modif_fact(facture $f)
-{
-  try {
-    $query = "UPDATE  invoices SET net_paye=?,dateecheance=?,dateemission=?,type=? where id=?";
-    $stmt = $this->pdo->prepare($query);
-    $arry = array($f->getNetPayer(), $f->getDateEcheance(), $f->getDateEmission(), $f->gettype(), $f->getId());
-    return $stmt->execute($arry);
-  } catch (Exception $e) {
-    return false;
+  function getFacture($id)
+  {
+    $query = "select * from invoices where id=?  ";
+    $res = $this->pdo->prepare($query);
+    $res->execute(array($id));
+    $data = $res->fetch();
+    return $data;
   }
-}
-/*****************************delete******************* */
-function delete($id)
-{
- 
-  $sql=" delete from invoices where id=?";
-  $res=$this->pdo->prepare($sql);
-  return $res->execute(array($id));
-}
-//**********************non payants******************************* */
-public function numberNonpaye()
-{
-  $sql = "SELECT COUNT(id) AS total  FROM invoices  WHERE paid = 0";
-  $res = $this->pdo->query($sql);
-  $result = $res->fetch(PDO::FETCH_ASSOC);
-  return $result['total'];
-}
-/*************************payes******************************* */
-public function numberpaye()
-{
-  $sql = "SELECT COUNT(id) AS total  FROM invoices  WHERE paid = 1";
-  $res = $this->pdo->query($sql);
-  $result = $res->fetch(PDO::FETCH_ASSOC);
-  return $result['total'];
-}
-/****************************************************************/ 
-function listeNonpaye(facture $f)
+  // /***************************modif */
+  function modif_fact(facture $f)
+  {
+    try {
+      $query = "UPDATE  invoices SET net_paye=?,dateecheance=?,dateemission=?,type=? where id=?";
+      $stmt = $this->pdo->prepare($query);
+      $arry = array($f->getNetPayer(), $f->getDateEcheance(), $f->getDateEmission(), $f->gettype(), $f->getId());
+      return $stmt->execute($arry);
+    } catch (Exception $e) {
+      return false;
+    }
+  }
+  /*****************************delete******************* */
+  function delete($id)
+  {
+
+    $sql = " delete from invoices where id=?";
+    $res = $this->pdo->prepare($sql);
+    return $res->execute(array($id));
+  }
+  //**********************non payants******************************* */
+  public function numberNonpaye()
+  {
+    $sql = "SELECT COUNT(id) AS total  FROM invoices  WHERE paid = 0";
+    $res = $this->pdo->query($sql);
+    $result = $res->fetch(PDO::FETCH_ASSOC);
+    return $result['total'];
+  }
+  /*************************payes******************************* */
+  public function numberpaye()
+  {
+    $sql = "SELECT COUNT(id) AS total  FROM invoices  WHERE paid = 1";
+    $res = $this->pdo->query($sql);
+    $result = $res->fetch(PDO::FETCH_ASSOC);
+    return $result['total'];
+  }
+  /****************************************************************/
+  function listeNonpaye(facture $f)
   {
     $query = "select id,iduser,datepaid,type from invoices where paid=0 ";
     $res = $this->pdo->prepare($query);
@@ -102,11 +97,25 @@ function listeNonpaye(facture $f)
     $res->execute();
     return $res;
   }
+ 
+  public function paiement($id)
+  {
 
 
+    /* $sql = "SELECT id, iduser, datepaid, net_paid, paid, type, u.rib
+          FROM invoices i  users u
+          INNER JOIN users u ON i.iduser = u.id
+          WHERE i.id = ?";*/
+    try {
+      $date_paye = date('Y-m-d H:i:s');
 
-
-
-
+      $sql = "update  invoices set paid = 1 , datepaid = ? where id = ?";
+      $stmt = $this->pdo->prepare($sql);
+      $arry = array($date_paye, $id);
+      return $stmt->execute($arry);
+    } catch (Exception $e) {
+      echo "error" . $e;
+      header('location :paiment.php');
+    }
+  }
 }
-?>

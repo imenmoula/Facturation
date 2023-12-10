@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php define("RACINE_SITE","/Facturation/");
- ?>
+<?php define("RACINE_SITE", "/Facturation/");
+?>
+
 <head>
   <meta charset="UTF-8">
   <title>Users</title>
@@ -9,13 +10,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <?php 
-  
-  $rootPath = $_SERVER['DOCUMENT_ROOT'].'/Facturation/';
-  
-  
-  ?> 
-         <link rel="stylesheet" href="<?php echo RACINE_SITE . 'views/includes/style.css' ?>">
+  <?php
+
+  $rootPath = $_SERVER['DOCUMENT_ROOT'] . '/Facturation/';
+
+
+  ?>
+  <link rel="stylesheet" href="<?php echo RACINE_SITE . 'views/includes/style.css' ?>">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- Materialize JavaScript -->
@@ -30,7 +31,6 @@
   ?>
 
   <style>
-    /* Add custom styles if needed */
     .form-with-button {
       display: flex;
       justify-content: space-between;
@@ -39,23 +39,16 @@
 
     .right-aligned {
       margin-left: auto;
-      /* Moves the button to the right */
     }
 
-    /* Custom styles for buttons */
     .custom-btn {
       padding: 1 12px;
-      /* Adjust the padding as needed */
       margin-right: 9px;
-      /* Adds space between buttons */
     }
 
-    /* Custom styles for small icons */
     .small-icon {
       font-size: 16px;
-      /* Adjust the font-size of the icons */
       margin-right: 4px;
-      /* Adds space between icon and text */
     }
   </style>
 </head>
@@ -66,7 +59,7 @@
 
   <br> <br>
   <div class="container">
-    <h4>Liste des Facture</h4>
+    <h4>Liste des Facture <?php echo $_SESSION['name']; ?></h4>
     <form method='post' class="form-with-button">
       <div class="input-field">
 
@@ -82,12 +75,13 @@
       </div>
 
 
-
+      <?php if ($is_admin) { ?>
       <div class="right-aligned">
         <a href="ajoutfact.php" class='waves-effect waves-light btn'>
           <i class='material-icons left'>add</i>Ajout
         </a>
       </div>
+      <?php } ?>
     </form>
     <!--*********php */-------------------------------------------------------------------------------->
     <?php
@@ -99,64 +93,85 @@
     $res = $fact->liste($fact);
     echo '<table class="striped">';
     echo "<thead>
-          <tr>
-            <th>Id</th>
-            <th>User</th>
-            <th>Montant</th>
-            <th>Datedebut</th>
-            <th>Datefin</th>
-            <th>Type</th>
-            <th>Consulter</th>
-            <th>Modifier</th>
-            <th>Supprimer</th>
-          </tr>
-        </thead>";
-    echo '<tbody>';
+    <tr>
+        <th>Id</th>
+        <th>User</th>
+        <th>Montant</th>
+        <th>Datedebut</th>
+        <th>Datefin</th>
+        <th>Type</th>
+        <th>état de paiement</th>
+        <th>Consulter</th>
+        <th>Paiement</th>";
 
+        if ($is_admin) {
+        echo "<th>Modifier</th>
+              <th>Supprimer</th>";
+        }
+
+echo "</tr>
+  </thead>";
+echo "<tbody>";
 
     if (is_array($res) || is_object($res)) {
-      foreach ($res as $row) {
-        echo "<tr>
-              <td>{$row['id']}</td>
-              <td>{$row['iduser']}</td>
-              <td>{$row['net_paye']}</td>
-              <td>{$row['dateecheance']}</td>
-              <td>{$row['dateemission']}</td>
-              <td>{$row['type']}</td>
-              
-
-              <td>
-                  <a href=' #?id={$row['id']}' class='waves-effect waves-light btn-small'>
-                      <i class='material-icons small-icon'>visibility</i>Consulter
-                  </a>
+        foreach ($res as $row) {
           
-              </td>
-              <td>
-            
-           
-              
-               
-                      <a href='modifFact.php?id={$row['id']}' class='waves-effect waves-light btn-small'>
-                          <i class='material-icons small-icon'>edit</i>Modifier
+          
+          echo "<tr>
+                  <td>{$row['id']}</td>
+                  <td>{$row['iduser']}</td>
+                  <td>{$row['net_paye']}</td>
+                  <td>{$row['dateecheance']}</td>
+                  <td>{$row['dateemission']}</td>
+                  <td>{$row['type']}</td>
+                  <td>";
+          
+          if ($row['paid'] == 1) {
+              echo "<p style='color: green'>Payée</p>";
+          } else {
+              echo "<p style='color: red'>Non payée</p>";
+          }
+          
+          echo "</td>
+                  <td>
+                      <a href='#?id={$row['id']}' class='waves-effect waves-light btn-small'>
+                          <i class='material-icons small-icon'>visibility</i>Consulter
                       </a>
-               </td>
-               <td>
-                             
+                  </td>
+                  <td>
+                      <a href='paiment.php?id={$row['id']}' class='waves-effect waves-light btn-small yellow modal-trigger'>
+                          <i class='material-icons small-icon'>attach_money</i>Payer
+                      </a>
+                  </td>
+              </tr>";
+          
 
-        <a href='#confirmationModal' data-id='{$row['id']}' class='waves-effect waves-light btn-small red modal-trigger'>
-            <i class='material-icons small-icon'>delete</i>Supprimer
-        </a>
-
-               </td>
-               
-            </tr>";
+      
+          if ($is_admin) {
+              echo "<td>
+                        <a href='modifFact.php?id={$row['id']}' class='waves-effect waves-light btn-small'>
+                            <i class='material-icons small-icon'>edit</i>Modifier
+                        </a>
+                    </td>
+                    <td>
+                        <a href='#confirmationModal' data-id='{$row['id']}' class='waves-effect waves-light btn-small red modal-trigger'>
+                            <i class='material-icons small-icon'>delete</i>Supprimer
+                        </a>
+                    </td>";
+          }
+      
+          echo "</tr>";
       }
+      
     }
 
     echo '</tbody>';
     echo '</table>';
+
+
     ?>
 
+    <!--***********************************************************------------------------->
   </div>
 
   <div id="confirmationModal" class="modal">

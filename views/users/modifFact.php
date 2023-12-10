@@ -37,8 +37,6 @@
                 echo '<p style="color: red;">' . 'Echec de l\'opération ! Merci de réessayer ultérieurement.' . '</p>';
             }
             ?>
-
-
             <div class="input-field">
                 <select name="user_id">
                     <option value="" disabled selected>Choose your option</option>
