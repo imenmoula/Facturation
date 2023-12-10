@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php define("RACINE_SITE","/Facturation/");?>
 
 <head>
     <meta charset="UTF-8">
     <title>Accueil - Votre Application de Paiement en Ligne</title>
     <!-- Inclure les fichiers CSS de Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Styles CSS personnalisés -->
-    <style>
-        /* Ajoutez vos styles personnalisés ici */
-    </style>
+    <link rel="stylesheet" href="<?php echo RACINE_SITE.'views/includes/style.css'?>">
+
 </head>
 
 <body>
-<?php define("RACINE_SITE","/Facturation/"); ?>
+<?php 
+  
+  $rootPath = $_SERVER['DOCUMENT_ROOT'].'/Facturation/';
+  
+  include $rootPath.'views/includes/navbar.php'; 
+  
+  ?>
 
     <div class="container">
         <h1>Application de Paiement en Ligne</h1>
@@ -31,9 +36,14 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <footer>
+        <p>&copy; 2023 Votre Application de Paiement en Ligne. Tous droits réservés.</p>
+</footer>
+
 
     <!-- Inclure les fichiers JavaScript de Materialize -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>

@@ -27,8 +27,24 @@
     <br> <br>
 
     <div class="container">
-        <h2>Ajout</h2><?php echo $_SESSION['name'].$_SESSION['id']; ?>
+        <?php 
+         if($_SESSION['id']){
+            echo "<h2>Ajout</h2>";
+         }else {
+            echo "<h2>Inscription</h2>";
+         }
+        ?>
+
         <form action="inscrire.php" method="post">
+
+        <?php
+
+            if (isset($_GET['success'])) {
+                echo '<p style="color: green;">' . ' Opération effectuée avec succès' . '</p>';
+            } elseif (isset($_GET['error'])) {
+                echo '<p style="color: red;">' . 'Echec de l\'opération ! Merci de réessayer ultérieurement.' . '</p>';
+            }
+            ?>
             <div class="input-field">
                 <input type="text" id="name" name="name" required>
                 <label for="name">Nom complet</label>

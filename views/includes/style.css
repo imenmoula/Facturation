@@ -2,7 +2,7 @@
   
   /********************************************************/
   nav {
-    background-color: #2196F3; 
+    background-color: cadetblue; 
     /* Blue background color */
     position: fixed;
     width: 100%;
@@ -12,7 +12,74 @@
 
 
 
-/* Customize the brand-logo */
-.brand-logo {
-    margin-left: 15px; /* Adjust the margin as needed */
+
+header {
+  background-color: cadetblue;
+  color: white; /* Couleur du texte du menu */
+  padding: 10px 0;
+}
+
+footer {
+  background-color: #333; /* Couleur de fond du pied de page */
+  color: white; /* Couleur du texte du pied de page */
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Style du bouton du menu */
+.nav-wrapper .brand-logo {
+  color: white; /* Couleur du texte du logo */
+}
+
+.nav-wrapper a {
+  color: white !important; /* Couleur du texte des liens du menu */
+}
+nav {
+color: #fff;
+background-color: cadetblue;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.login-container {
+  display: flex;
+  width: 70%;
+  box-shadow: 0 0 10px cadetblue;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.login-image {
+  flex: 1;
+  background-image: url('<?php echo RACINE_SITE; ?>views/includes/img/login.png'); /* Remplacez par le chemin de votre image */
+  background-size: cover;
+}
+
+.login-form {
+  flex: 1;
+  padding: 20px;
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+}
+
+.input-field {
+  margin-bottom: 20px;
+}
+
+/* Style pour le menu Materialize */
+nav {
+  background-color: cadetblue;
+}
+
+nav .brand-logo {
+  margin-left: 20px;
 }

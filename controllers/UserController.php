@@ -38,21 +38,18 @@ class UserController extends User
       $aryy = array($u->getEmail(), $u->getPassword());
       $res->execute($aryy);
 
-      $user = $res->fetch(PDO::FETCH_ASSOC); // Récupération de la première ligne de résultat
+      $user = $res->fetch(PDO::FETCH_ASSOC); 
 
       if ($res->rowCount() == 1) {
 
-        // Start the session
         $_SESSION['id'] = $user['id'];
         $_SESSION['name'] = $user['name'];
         $_SESSION['email'] = $user['email'];
 
         $_SESSION['is_admin'] = $user['is_admin'];
-        // echo "Connexion réussie pour l'utilisateur : " . $_SESSION['name'] ;
         header("Location: home.php");
         exit();
       } else {
-        // echo "Identifiants incorrects. Veuillez réessayer.";
         header("Location: login.php?erreur=Identifiants incorrects. Veuillez réessayer.");
         exit();
       }
@@ -60,6 +57,21 @@ class UserController extends User
       echo "error" . $e;
       header('location :login.php?erreur=' . $e);
     }
+  }
+  /******************deconnexion ************************************************ */
+  function deconnexion()
+  {  
+      session_start();
+  
+      $_SESSION = array();
+  
+      if (isset($_COOKIE[session_name()])) {
+          setcookie(session_name(), '', time()-42000, '/');
+      }
+  
+      session_destroy();
+        header("Location: login.php");
+      exit();
   }
   /*************************************************** */
   function liste(user $u)

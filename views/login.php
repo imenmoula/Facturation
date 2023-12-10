@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <?php define("RACINE_SITE","/Facturation/"); ?>
+
     <!-- Materialize CSS CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Custom styles -->
@@ -48,6 +49,14 @@
 </head>
 
 <body >
+
+<?php 
+  
+  $rootPath = $_SERVER['DOCUMENT_ROOT'].'/Facturation/';
+  
+  include $rootPath.'views/includes/navbar.php'; 
+  
+  ?>
     <div class="container">
         <div class="login-container">
             <div class="login-image"></div>

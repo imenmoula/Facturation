@@ -30,9 +30,13 @@ try {
     $UserCtr = new UserController();
     $res = $UserCtr->insert($user);
     if ($res == true) {
-        echo "succe";
+     
+
+            header('Location:inscription.php?success=1');
+
+       
     } else {
-        echo "error";
+        header('Location:inscription.php?error=1');
     }
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
