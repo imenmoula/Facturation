@@ -39,7 +39,11 @@ class factureController extends facture
   /******************************************************** */
   function getFacture($id)
   {
-    $query = "select * from invoices where id=?  ";
+
+    $query = "SELECT i.id, i.iduser, i.datepaid, i.dateecheance,i.dateemission,i.net_paye, i.paid, i.type, u.rib, u.name, u.phone
+    FROM invoices i
+    INNER JOIN users u ON i.iduser = u.id
+    WHERE i.id = ?";
     $res = $this->pdo->prepare($query);
     $res->execute(array($id));
     $data = $res->fetch();
@@ -100,12 +104,6 @@ class factureController extends facture
  
   public function paiement($id)
   {
-
-
-    /* $sql = "SELECT id, iduser, datepaid, net_paid, paid, type, u.rib
-          FROM invoices i  users u
-          INNER JOIN users u ON i.iduser = u.id
-          WHERE i.id = ?";*/
     try {
       $date_paye = date('Y-m-d H:i:s');
 
@@ -118,4 +116,5 @@ class factureController extends facture
       header('location :paiment.php');
     }
   }
+  
 }

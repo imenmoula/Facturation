@@ -6,10 +6,8 @@ include_once($rootPath . '/controllers/factureController.php');
 ob_end_clean();
 require($rootPath .'fpdf/fpdf.php');
 
-
-// Vérifier si l'ID de la facture est spécifié dans l'URL
 if (isset($_GET['id'])) {
-    $id_facture = $_GET['id'];
+    $id = $_GET['id'];
 
 
     try {
@@ -19,19 +17,44 @@ if (isset($_GET['id'])) {
         $pdf=new FPDF();
         $pdf->Open();
         $pdf->AddPage();
-        $pdf->SetFont('Arial','B',16);
         // Ajouter le titre de la facture
-$pdf->Cell(0, 10, 'Facture', 0, 1, 'C');
+        $factctr=new factureController();
+        $res=$factctr->getFacture($id);
+       // $pdf->Cell(0, 10, 'Facture', 0, 1, 'C');
+       // Add a Unicode font (uses UTF-8)
 
-// Ajouter les informations de la facture
-$id_facture = 1; // Remplacez ceci par l'ID de votre facture récupéré depuis votre base de données
-$montant = 100; // Exemple de montant pour la facture
-$date_facturation = '2023-12-31'; // Exemple de date de facturation
 
-$pdf->SetFont('Arial', '', 12);
-$pdf->Cell(0, 10, 'ID Facture: ' . $id_facture, 0, 1);
-$pdf->Cell(0, 10, 'Montant: $' . $montant, 0, 1);
-$pdf->Cell(0, 10, 'Date de facturation: ' . $date_facturation, 0, 1);
+ 
+        //Logo
+
+        //Adresse
+        $pdf->SetFont('Arial','B',16);
+        $pdf->SetFont('Arial','',12);
+        $pdf->SetTextColor(0,0,0);
+        $pdf->MultiCell(50,5,"Socitéte Tunisienne de l'Electricite",0,'L',false);
+     
+        //Informations Facture
+        $pdf->SetXY(60,30);
+        $pdf->SetFillColor(200,200,200);
+        $pdf->SetFont('Arial','B',15);
+        $pdf->Cell(140,6,"FACTURE",1,2,'C',true);
+        $pdf->SetFont('Arial','',12);
+        $pdf->SetXY(60,38);
+        $pdf->MultiCell(130,5,"Facture Num : ". $res['id']."\nDate de commande : ".date("m.d.y")."\nEtat: " . (($res['paid'] == 1) ? 'Payer' : 'Non Payer')."\nMode de paiement : Carte Bancaire",'','L',false);
+     
+        //Adresse de Facturation
+        $pdf->Cell(0,10,"Au ".$res['dateecheance']."DU ".$res['dateecheance'],0,1);
+     
+        //Adresse de livraison
+        $pdf->Cell(0, 10, 'Telephone: '.$res['phone'] , 0, 1);
+        $pdf->Cell(0, 10, 'name: '.$res['name'] , 0, 1);
+        $pdf->Cell(0, 10, 'Net à payer : ' . $res['net_paye'] .' DT', 0, 1);
+        $pdf->Cell(0, 10, 'Date de facturation: '.$res['datepaid'] , 0, 1);
+        $pdf->Cell(0, 10, 'type: '.$res['type'] , 0, 1);
+     
+        
+
+
 
 
 
@@ -71,3 +94,4 @@ $pdf->Cell(0, 10, 'Date de facturation: ' . $date_facturation, 0, 1);
 } else {
     echo "ID de facture non spécifié";
 }
+?>
