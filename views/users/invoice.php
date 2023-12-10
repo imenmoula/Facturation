@@ -58,7 +58,7 @@
   <!-- Navbar -->
 
   <br> <br>
-  <div class="container">
+  <div class="container" style="display: block !important;">
     <h4>Liste des Facture <?php echo $_SESSION['name']; ?></h4>
     <form method='post' class="form-with-button">
       <div class="input-field">
@@ -185,7 +185,9 @@ echo "<tbody>";
     </div>
   </div>
 
-
+  <footer>
+        <p>&copy; 2023 Votre Application de Paiement en Ligne. Tous droits réservés.</p>
+</footer>
 
   <script>
     function confirmDelete(id) {

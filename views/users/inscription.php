@@ -26,7 +26,7 @@
     ?>
     <br> <br>
 
-    <div class="container">
+    <div class="container" style="display:block !important">
         <?php 
          if($_SESSION['id']){
             echo "<h2>Ajout</h2>";
@@ -84,7 +84,11 @@
             <button class="btn waves-effect waves-light" type="submit">S'inscrire</button>
         </form>
     </div>
+    <br> <br>
 
+    <footer>
+        <p>&copy; 2023 Votre Application de Paiement en Ligne. Tous droits réservés.</p>
+</footer>
     <!-- Inclure les fichiers JavaScript de Materialize -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <?php

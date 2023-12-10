@@ -13,18 +13,13 @@
   
   ?> 
          <link rel="stylesheet" href="<?php echo RACINE_SITE . 'views/includes/style.css' ?>">
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
-       
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- CSS personnalisé -->
   <style>
  
-    body {
-      padding-top: 20px;
-    }
+    
     .card {
       width: 300px;
       margin: 20px;
@@ -60,14 +55,11 @@
 ?>
       <!-- Navbar -->
     <!-- Main content -->
-    <div class="container">   
-    </div>
- <br>
- <br>
- <br>
+    
+ 
     
 <!-------*******************dasbord************************************************--->
-<div class="container">
+<div class="container_lx">
   <div class="row">
     <div class="col s12 m4">
       <div class="card blue">
@@ -168,7 +160,9 @@
   </div>
 </div>
 
-
+<footer>
+        <p>&copy; 2023 Votre Application de Paiement en Ligne. Tous droits réservés.</p>
+</footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <!-- Add your custom scripts here -->
