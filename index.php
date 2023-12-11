@@ -20,10 +20,10 @@
   ?>
 
     <div class="container_lx">
-        <h1>Application de Paiement en Ligne</h1>
+        <h4>Application de Paiement en Ligne</h4>
         <div class="row">
             <div class="col s12 m6">
-                <img src="<?php echo RACINE_SITE; ?>views/includes/img/login.png" alt="Image de facturation" class="responsive-img">
+                <img src="<?php echo RACINE_SITE; ?>views/includes/img/im1.png"  width="300" height="250"Image de facturation" class="responsive-img">
             </div>
             <div class="col s12 m6">
                 <p>Description de votre application de paiement en ligne...</p>

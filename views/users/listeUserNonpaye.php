@@ -12,9 +12,10 @@ $res = $fact->listeNonpaye($fact);
 <html>
 <head>
   <title>Table Design</title>
- 
-
+  
+  <link rel="stylesheet" href="<?php echo RACINE_SITE . 'views/includes/style.css' ?>">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <?php
 

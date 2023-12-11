@@ -3,7 +3,6 @@
   /********************************************************/
   nav {
     background-color: cadetblue; 
-    /* Blue background color */
     position: fixed;
     width: 100%;
     z-index: 1000; 
@@ -15,24 +14,24 @@
 
 header {
   background-color: cadetblue;
-  color: white; /* Couleur du texte du menu */
+  color: white; 
   padding: 10px 0;
 }
 
 footer {
-  background-color: cadetblue; /* Couleur de fond du pied de page */
-  color: white; /* Couleur du texte du pied de page */
+  background-color: cadetblue; 
+  color: white; 
   padding: 10px 0;
   text-align: center;
 }
 
-/* Style du bouton du menu */
+
 .nav-wrapper .brand-logo {
-  color: white; /* Couleur du texte du logo */
+  color: white; 
 }
 
 .nav-wrapper a {
-  color: white !important; /* Couleur du texte des liens du menu */
+  color: white !important; 
 }
 nav {
 color: #fff;
@@ -64,7 +63,7 @@ background-color: cadetblue;
 
 .login-image {
   flex: 1;
-  background-image: url('<?php echo RACINE_SITE; ?>views/includes/img/login.png'); /* Remplacez par le chemin de votre image */
+  background-image: url('<?php echo RACINE_SITE; ?>views/includes/img/login.png'); 
   background-size: cover;
 }
 
@@ -81,7 +80,7 @@ background-color: cadetblue;
   margin-bottom: 20px;
 }
 
-/* Style pour le menu Materialize */
+
 nav {
   background-color: cadetblue;
 }
