@@ -121,11 +121,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             ?>
 
-            <!-- Your Select Dropdown -->
+            
             <div class="input-field col s12">
                 <select name="user_id">
                     <option value="" disabled selected>Choose your option</option>
-                    <!-- PHP to populate options from the database -->
                     <?php
                     include_once($rootPath . 'models/User.php');
                     include_once($rootPath . 'controllers/UserController.php');
@@ -143,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <label>Users</label>
             </div>
 
-            <!-- Other input fields -->
+            
             <div class="input-field">
                 <input type="text" name="netpaid">
                 <label for="netpaid">Montant</label>

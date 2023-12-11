@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Users</title>
-  
+
   <?php
 
   $rootPath = $_SERVER['DOCUMENT_ROOT'] . '/Facturation/';
@@ -14,7 +14,6 @@
   ?>
 
   <style>
-    /* Add custom styles if needed */
     .form-with-button {
       display: flex;
       justify-content: space-between;
@@ -23,33 +22,28 @@
 
     .right-aligned {
       margin-left: auto;
-      /* Moves the button to the right */
     }
 
-    /* Custom styles for buttons */
     .custom-btn {
       padding: 1 12px;
-      /* Adjust the padding as needed */
       margin-right: 9px;
-      /* Adds space between buttons */
     }
 
-    /* Custom styles for small icons */
+
     .small-icon {
       font-size: 16px;
-      /* Adjust the font-size of the icons */
       margin-right: 4px;
-      /* Adds space between icon and text */
+
     }
   </style>
- 
+
 </head>
 
 <body>
 
   <!-- Navbar -->
-  <?php   include $rootPath . 'views/includes/navbar.php';
- ?>
+  <?php include $rootPath . 'views/includes/navbar.php';
+  ?>
 
   <br> <br>
   <div class="container">
@@ -67,10 +61,6 @@
 
       </div>
     </div>
-
-    
-
-
 
 
     <div id="clientSearchModal" class="modal">
@@ -110,7 +100,7 @@
     if (isset($_GET['success']) && isset($_GET['data'])) {
 
       $res = json_decode(stripslashes(urldecode($_GET['data'])));
-    }else {
+    } else {
       $res = $u->liste($u);
     }
 
@@ -134,7 +124,7 @@
 
     if (is_array($res) || is_object($res)) {
 
-      if (!is_array($res)) { 
+      if (!is_array($res)) {
         foreach ($res as $row) {
           echo "<tr>
                 <td>{$row['id']}</td>
@@ -161,8 +151,7 @@
                  
               </tr>";
         }
-
-      }else {
+      } else {
         foreach ($res as $row) {
           echo "<tr>
                 <td>{$row->id}</td>
@@ -188,9 +177,7 @@
                  
               </tr>";
         }
-
       }
-      
     }
 
     echo '</tbody>';
@@ -201,7 +188,7 @@
 
 
 
-  
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const clientSearchInput = document.getElementById('clientSearchInput');
@@ -211,7 +198,7 @@
     });
   </script>
 
-  
+
 </body>
 
 </html>

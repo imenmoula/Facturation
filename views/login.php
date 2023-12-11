@@ -6,13 +6,13 @@
     <title>Login</title>
     <?php define("RACINE_SITE","/Facturation/"); ?>
 
-    <!-- Materialize CSS CDN -->
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="<?php echo RACINE_SITE.'views/includes/style.css'?>">
 
-    <!-- Custom styles -->
+  
     <style>
-        /* Style personnalisé pour l'image et le formulaire */
+        
         .container {
             display: flex;
             justify-content: center;
@@ -31,7 +31,7 @@
 
         .login-image {
             flex: 1;
-            background-image: url('<?php echo RACINE_SITE; ?>views/includes/img/login.png'); /* Remplacez par le chemin de votre image */
+            background-image: url('<?php echo RACINE_SITE; ?>views/includes/img/login.png'); 
             background-size: cover;
         }
 
@@ -84,14 +84,14 @@
         </div>
     </div>
 
-    <!-- Materialize JavaScript CDN -->
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <footer>
         <p>&copy; 2023 Votre Application de Paiement en Ligne. Tous droits réservés.</p>
 </footer>
 
 
-    <!-- Other scripts -->
+   
 </body>
 
 </html>

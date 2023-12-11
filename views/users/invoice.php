@@ -6,9 +6,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Users</title>
-  <!-- Materialize CSS -->
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <!-- Material Icons -->
+ 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <?php
 
@@ -18,7 +18,6 @@
   <link rel="stylesheet" href="<?php echo RACINE_SITE . 'views/includes/style.css' ?>">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <!-- Materialize JavaScript -->
 
 
   <?php
@@ -73,16 +72,7 @@
 <br> 
 
 
-    <form action="#" method="post">
-      <div class="input-field">
-        <i class='material-icons prefix'>search</i>
-
-        <label for="client_number">Enter the number of clients:</label>
-
-        <input type="text" id="search" name="search">
-        <button type="submit">recherche</button>
-      </div>
-    </form>
+    
 
     <br>
     <form method='post' class="form-with-button">
@@ -96,14 +86,7 @@
         </div>
       <?php } ?>
     </form>
-    <!--*********php */-------------------------------------------------------------------------------->
-    
-
-    
-    <!--***********************************************************------------------------->
-  
-
- 
+     
   <div class="table-responsive">
     <table class="striped">
       <thead>

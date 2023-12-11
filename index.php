@@ -5,7 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Accueil - Votre Application de Paiement en Ligne</title>
-    <!-- Inclure les fichiers CSS de Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="<?php echo RACINE_SITE.'views/includes/style.css'?>">
 
@@ -43,7 +42,7 @@
 </footer>
 
 
-    <!-- Inclure les fichiers JavaScript de Materialize -->
+    
 </body>
 
 </html>

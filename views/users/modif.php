@@ -12,13 +12,10 @@ define("RACINE_SITE", "/Facturation/");
 
 
     <title>Modification</title>
-    <!-- Inclure les fichiers CSS de Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <link rel="stylesheet" href="<?php echo RACINE_SITE . 'views/includes/style.css' ?>">
-    <!-- Styles CSS personnalisés -->
     <style>
-        /* Ajoutez vos styles personnalisés ici */
     </style>
 </head>
 
@@ -91,7 +88,6 @@ define("RACINE_SITE", "/Facturation/");
         </form>
     </div>
 
-    <!-- Inclure les fichiers JavaScript de Materialize -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 

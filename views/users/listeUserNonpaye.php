@@ -50,7 +50,7 @@ $res = $fact->listeNonpaye($fact);
                   <td>{$row['type']}</td>
                   <td>";
 
-          // Display a button if the payment is not done
+       
           if ($row['paid'] == 0 &&  strtotime($row['datepaid']) < time()) {
             echo "<a class='waves-effect waves-light btn red'><i class='material-icons left'>warning</i>Not Paid</a>";
 
