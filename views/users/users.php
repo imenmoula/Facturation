@@ -194,8 +194,7 @@
                  </td>
                  <td>
                     <a href='supp.php?id={$row->id}' class='waves-effect waves-light btn-small red'>
-                     <i class='material-icons  small-icon'>delete</i>Supprimer
-                     </a>
+                     <i class='material-icons  small-icon'>delete</i>Supprimer </a>
                  </td>
                  
               </tr>";
@@ -213,7 +212,7 @@
 
 
 
-  <!-- jQuery -->
+  
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const clientSearchInput = document.getElementById('clientSearchInput');

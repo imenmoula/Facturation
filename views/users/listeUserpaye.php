@@ -42,6 +42,7 @@ define("RACINE_SITE","/Facturation/");
     </thead>
     <tbody>
       <?php
+   
       if (is_array($res) || is_object($res)) {
         foreach ($res as $row) {
           echo "<tr>
@@ -53,7 +54,8 @@ define("RACINE_SITE","/Facturation/");
 
           
           if ($row['paid'] == 1 ) {
-            echo "<a class='waves-effect waves-light btn green'><i class='material-icons left'>warning</i> Paid</a>";
+            echo "<a class='waves-effect waves-light btn yellow'><i class='material-icons left'>warning</i> Paid</a>";
+
           } 
 
           echo "</td></tr>";

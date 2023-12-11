@@ -10,7 +10,7 @@ $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1;
 
 <nav>
         <div class="nav-wrapper">
-            <a href="<?php echo RACINE_SITE; ?>" class="brand-logo">Facturation</a>
+            <a href="<?php echo RACINE_SITE; ?>" class="brand-logo"> Facturation</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
             <?php

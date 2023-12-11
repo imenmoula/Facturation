@@ -28,8 +28,14 @@ class factureController extends facture
   {
     if ($_SESSION['is_admin']) {
       $query = "select * from invoices";
+      $query = "SELECT i.id, i.iduser, i.datepaid, i.dateecheance,i.dateemission,i.net_paye, i.paid, i.type, u.rib, u.name, u.phone
+    FROM invoices i
+    INNER JOIN users u ON i.iduser = u.id";
     } else {
-      $query = "select * from invoices where iduser=" . $_SESSION['id'];
+      $query = "SELECT i.id, i.iduser, i.datepaid, i.dateecheance,i.dateemission,i.net_paye, i.paid, i.type, u.rib, u.name, u.phone
+      FROM invoices i
+      INNER JOIN users u ON i.iduser = u.id
+      WHERE iduser=" . $_SESSION['id'];
     }
     $res = $this->pdo->prepare($query);
     $res->execute();
