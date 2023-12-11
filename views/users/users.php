@@ -126,7 +126,6 @@
             <th>Rib</th>
             <th>Cin</th>
             <th>Ville</th>
-            <th>Consulter</th>
             <th>Modifier</th>
             <th>Supprimer</th>
           </tr>
@@ -148,12 +147,7 @@
                 <td>{$row['cin']}</td>
                 <td>{$row['ville']}</td>
   
-                <td>
-                    <a href='consulte.php?id={$row['id']}' class='waves-effect waves-light btn-small'>
-                        <i class='material-icons small-icon'>visibility</i>Consulter
-                    </a>
-            
-                </td>
+                
                 <td>
                   <a href='modif.php?id={$row['id']}' class='waves-effect waves-light btn-small'>
                        <i class='material-icons small-icon'>edit</i>Modifier
@@ -181,12 +175,7 @@
                 <td>{$row->cin}</td>
                 <td>{$row->ville}</td>
   
-                <td>
-                    <a href='consulte.php?id={$row->id}' class='waves-effect waves-light btn-small'>
-                        <i class='material-icons small-icon'>visibility</i>Consulter
-                    </a>
-            
-                </td>
+                
                 <td>
                   <a href='modif.php?id={$row->id}' class='waves-effect waves-light btn-small'>
                        <i class='material-icons small-icon'>edit</i>Modifier

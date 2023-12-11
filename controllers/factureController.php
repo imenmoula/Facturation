@@ -27,7 +27,7 @@ class factureController extends facture
   function liste(facture $f)
   {
     if ($_SESSION['is_admin']) {
-      $query = "select * from invoices";
+     // $query = "select * from invoices";
       $query = "SELECT i.id, i.iduser, i.datepaid, i.dateecheance,i.dateemission,i.net_paye, i.paid, i.type, u.rib, u.name, u.phone
     FROM invoices i
     INNER JOIN users u ON i.iduser = u.id";

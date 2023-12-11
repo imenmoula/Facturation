@@ -66,6 +66,8 @@
                 <label>Users</label>
             </div>
 
+            <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
+
 
             <div class="input-field ">
                 <input type="text" name="netpaid" value="<?php echo $res['net_paye'] ?>">
