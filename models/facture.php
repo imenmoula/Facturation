@@ -44,7 +44,7 @@ class facture extends config{
             return $this->paid;
         }
     
-        // Setters (mutateurs)
+      
         public function setId($id) {
             $this->id = $id;
         }

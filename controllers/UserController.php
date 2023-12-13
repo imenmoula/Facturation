@@ -99,7 +99,7 @@ class UserController extends User
         $u->getRib(),
         $u->getCin(),
         $u->getCity(),
-        $u->getId() // Assuming getId() returns the user's ID
+        $u->getId() 
       );
       return $stmt->execute($arry);
       //var_dump($arry);

@@ -55,8 +55,7 @@ define("RACINE_SITE","/Facturation/");
 
           
           if ($row['paid'] == 1 ) {
-            echo "<a class='waves-effect waves-light btn yellow'><i class='material-icons left'>warning</i> Paid</a>";
-
+            echo "<a class='waves-effect waves-light btn yellow'><i class='material-icons left'>warning</a>";
           } 
 
           echo "</td></tr>";

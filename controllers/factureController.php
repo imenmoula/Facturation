@@ -107,7 +107,7 @@ class factureController extends facture
     $res->execute();
     return $res;
   }
- 
+ /************************paiment******************************************************* */
   public function paiement($id)
   {
     try {
